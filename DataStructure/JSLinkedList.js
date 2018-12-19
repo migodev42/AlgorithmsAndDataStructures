@@ -1,5 +1,8 @@
 /*
     Js实现单链表及基本操作
+    
+    **基本操作已实现
+    **appendNode之后的方法待测试
 */
 class LinkedList{
     constructor(){
@@ -57,20 +60,54 @@ class LinkedList{
         this.length++;
     }
 
-    searchNodeByPos(){
+    searchNodeByPos(pos){
+        //按位置查找，返回目标元素
+        let i =0;
+        let current=this.head;
 
+        while( current.next !== null && pos!==0){
+            
+            if(i===pos){
+                return current;
+            }
+            current=current.next;
+            i++;
+        }
+        return false;
     }
 
-    searchNodeByVal(){
+    searchNodeByVal(val){
+        let current=this.head;
+        let pos=0
+        if(this.head.next===null){
+            return false
+        }
+        while(current.next!==null){
+            if(current.element===val){
+                return current.element;
+            }
+            current=current.next;
+            pos++;
+        }
+        return false
+    }
+
+    removeNode(pos){
         
+        let p=this.searchNodeByPos(pos-1);
+        let s=p.next;
+
+        p.next=s.next;
+
+
+
     }
 
-    removeNode(){
-
-    }
-
-    insertNode(){
-
+    insertNode(pos,elem){
+        let node =new this.Node(elem);
+        let p = this.searchNodeByPos(pos-1);
+        node.next=p.next;
+        p.next=node;
     }
 
     
