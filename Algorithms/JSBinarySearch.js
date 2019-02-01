@@ -6,8 +6,8 @@ function BinarySearch(OrderList,elem){
     let high=OrderList.length-1;
     let low = 0;
     let mid;
-    while(low<high){
-        mid=Math.round((high+low)/2);
+    while(low<=high){
+        mid=Math.floor((high+low)/2);
         if(OrderList[mid]===elem){
             return mid;
         }
@@ -24,5 +24,5 @@ function BinarySearch(OrderList,elem){
     return -1;
 }
 
-let rs=BinarySearch(OrderList,51);
+let rs=BinarySearch(OrderList,1);
 console.log(rs,OrderList[rs]);
