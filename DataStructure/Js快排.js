@@ -30,16 +30,16 @@
   }; */
 
 
-  function quickSort(arr){
-    if(arr.length<=1) {return arr};
-    let pivotIndex=Math.floor(arr.length/2); //基准
-    // let pivot=arr[pivotIndex];
-    var pivot = arr.splice(pivotIndex, 1)[0];
-    let left=[];
-    let right=[];
-    arr.forEach(el=>{
-      el<pivot?left.push(el):right.push(el)
-    });
-    return quickSort(left).concat([pivot],quickSort(right));
-  
-  }
+function quickSort(arr) {
+  if (arr.length <= 1) { return arr };
+  let pivotIndex = Math.floor(arr.length / 2); //基准
+  // let pivot=arr[pivotIndex];
+  var pivot = arr.splice(pivotIndex, 1)[0];
+  let left = [];
+  let right = [];
+  arr.forEach(el => {
+    el < pivot ? left.push(el) : right.push(el)
+  });
+  return quickSort(left).concat([pivot], quickSort(right));
+
+}
