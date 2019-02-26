@@ -3,19 +3,26 @@
  * @return {number}
  */
 var reverse = function(x) {
-  let xStr=String(x);
-  console.log(xStr.split(''));
-  let xArr=xStr.split('').reverse();
-  console.log('输出',xArr.slice(xStr.length-1))
-  const i=xArr.slice(xStr.length-1)
+  let rs;
+  if(x<=((-2) ** 31) || x>=(2 ** 31 -1) ){
+      console.info('输入超出');
+      return 0;
+  }
+    
+  let xArr=String(x).split('').reverse();
+  const i=xArr.slice(xArr.length-1).join('')
   if(i === '-'){
-    console.log('负数');
-  }else if(i === '0'){
-      
+    rs= parseInt('-'+xArr.join(''));
+  
   }else{
-      console.log('正常');
-      return parseInt(xArr.join(''));
+    rs=Number(xArr.join(''));
+  }
+  if(rs<=((-2)**31) || rs>=(2**31-1)   ){
+    console.info('输出超出');
+    return 0;
+  }else{
+    return rs;
   }
 };
 
-console.log('结果',reverse(-123));
+console.log('结果',reverse(-1563847412));
