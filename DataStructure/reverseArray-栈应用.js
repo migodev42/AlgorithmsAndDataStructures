@@ -6,4 +6,4 @@ for(let a of listA){
 
 }
 
-console.log(listB);
+console.log(listB); 
